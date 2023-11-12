@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Webpack live Reload</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/cyborg/bootstrap.min.css" integrity="sha512-shUUCdnJlkP7SKC766Q4KhPoKV/9AQ3jg7yWoSKRR3RjUZ+lJ397FZ/8sO1uR5/HGMFU4MbL/WQ88CSssiqTaA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+
+
+</head>
+<body onload="myFunction()">
+
+  
+
+
+  
+
+
+  <div class="container "> 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse" id="navbarsExample10">
+      <ul class="navbar-nav">
+      <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<!-- For demo purpose --> 
+<div class="mt-5 row mb-4">
+ <div class="col-lg-8 mx-auto text-center"> <h1 class="display-4 title-login">webpack</h1> <p class="lead mb-0 title-desc">Example live Reload </p> <p class="lead title-desc">Snippet by <a href="https://m.facebook.com/codeplugs">Codeplug</a></p> </div> </div> <!-- End --> 
+
+
+
+
+
+   <div  class="mx-auto mt-5 mb-5">
+<h4 class="text-center">window Performance</h4> 
+
+<div id="divID"  class="row text-center d-flex justify-content-center"> 
+<ol id="old">  </ol> </div> 
+</div>
+
+ <hr> <footer class"mx-auto">
+<div class"inner"> <p class="text-center">&reg; Codeplug</p> 
+</div>
+</footer> </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+
+<script>
+var loadTime = window.performance.timing.domContentLoadedEventEnd- window.performance.timing.navigationStart;
+var div = document.getElementById('old');
+//div.innerHTML += window.performance;
+
+
+
+const resources = performance.getEntriesByType("resource");
+let entriesO = {};
+
+const entries = Object.entries(resources);
+entriesO["initiatorType"] = resources[0].initiatorType;
+entriesO["secureConnectionStart"] = resources[0].secureConnectionStart;
+
+entriesO["responseEnd"] = resources[0].responseEnd;
+
+
+const entriesOl= Object.entries(entriesO);
+
+let output = '';
+
+entriesOl.forEach(([key, value]) => {
+//output += `<ol><li>${key} = ${value} </li></ol>`;
+//let Text = value.replace(/(\r\n|\n|\r)/gm, "");
+console.log(key+'-'+value);
+console.log(key+'-text'+value);
+   div.innerHTML +=  `<li class="text-left">${key} = ${value} </li>`;
+
+});
+
+
+
+var resourcesc = window.performance.getEntries();
+
+console.log(resources[0].secureConnectionStart);  
+console.log(resources[0].responseEnd);   
+console.log(resources[0].initiatorType); 
+
+
+function myFunction() {
+  alert("Page is loaded");
+}
+</script>
+
+
+
+</body>
+</html>
+
+
