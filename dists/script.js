@@ -9,7 +9,7 @@ function fetchTimings() {
   const yyyy = d.getFullYear();
 
   // Mendapatkan data jadwal
-  const apiURL = `https://api.aladhan.com/v1/timingsByAddress/${dd}-${mm}-${yyyy}?address=Bogor`;
+  const apiURL = `https://api.aladhan.com/v1/timingsByAddress/${dd}-${mm}-${yyyy}?address=Bogors`;
 
   fetch(apiURL)
     .then((res) => res.json())
