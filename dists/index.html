@@ -13,7 +13,7 @@
   <p>A simple prayer times with hightlight and countdown for next prayer time</p>
 </header>
 
-<div id="countdown"></div>
+<div id="countdowns"></div>
 <div id="container"></div>
 
 <footer>Made with 💖 by Feri Irawan
@@ -21,16 +21,22 @@
 <a href="https://www.buymeacoffee.com/jdsjeo" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 </footer>
-
-<!-- partial -->
-  
-  <script  src="script.js"></script>
-<select id="mySelect" onchange="fetchTimings()">
+<select id="mySelect" onchange="myFunction()">
   <option value="Audi">Audi</option>
   <option value="BMW">BMW</option>
   <option value="Mercedes">Mercedes</option>
   <option value="Volvo">Volvo</option>
 </select>
+
+<!-- partial -->
+  <script>
+function myFunction() {
+  var x = document.getElementById("mySelect").value;
+  document.getElementById("countdowns").innerHTML = "You selected: " + x;
+}
+</script>
+  
+  <script  src="script.js"></script>
 
 </body>
 </html>
