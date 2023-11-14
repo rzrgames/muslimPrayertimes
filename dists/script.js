@@ -1,7 +1,7 @@
 let timings;
 
 // Mendapatkan data dan menampilkan jadwal
-function fetchTimings() {
+function fetchTimings(addr) {
   // Memformat tanggal
   let d = new Date();
   const dd = String(d.getDate()).padStart(2, "0");
@@ -9,7 +9,7 @@ function fetchTimings() {
   const yyyy = d.getFullYear();
 
   // Mendapatkan data jadwal
-  const apiURL = `https://api.aladhan.com/v1/timingsByAddress/${dd}-${mm}-${yyyy}?address=Bogor`;
+  const apiURL = `https://api.aladhan.com/v1/timingsByAddress/${dd}-${mm}-${yyyy}?address=addr`;
 
   fetch(apiURL)
     .then((res) => res.json())
@@ -95,7 +95,7 @@ function highlightNextPrayer() {
   });
 }
 
-fetchTimings();
+fetchTimings('Bogor');
 setInterval(() => {
   highlightNextPrayer();
   updateCountdown();
