@@ -95,7 +95,7 @@ function highlightNextPrayer() {
   });
 }
 
-fetchTimings('Bogor');
+//fetchTimings('Bogor');
 setInterval(() => {
   highlightNextPrayer();
   updateCountdown();
